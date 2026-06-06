@@ -714,30 +714,61 @@ function initWebGLBackground() {
 
     // Gyroscope / Accelerometer orientation handling for mobile devices
     function handleOrientation(e) {
-        if (e.beta !== null && e.gamma !== null) {
-            // gamma: left/right tilt [-90, 90]
-            // beta: front/back tilt [-180, 180]
-            const tiltX = e.gamma / 30; // Scale range: ~30 deg tilt maps to -1 to 1
-            const tiltY = (e.beta - 60) / 30; // Center around 60 deg holding angle
-            
-            targetMouseX = Math.max(-1, Math.min(1, tiltX));
-            targetMouseY = Math.max(-1, Math.min(1, -tiltY)); // Invert Y
+        let beta = e.beta;   // [-180, 180] (pitch - front/back)
+        let gamma = e.gamma; // [-90, 90] (roll - left/right)
+        
+        if (beta === null || gamma === null) return;
+        
+        // Handle screen orientation rotation (landscape vs portrait)
+        const orientation = window.orientation || (screen.orientation && screen.orientation.angle) || 0;
+        
+        let tiltX = 0;
+        let tiltY = 0;
+        
+        if (orientation === 90) {
+            // Landscape Left
+            tiltX = -beta / 30;
+            tiltY = -gamma / 30;
+        } else if (orientation === -90 || orientation === 270) {
+            // Landscape Right
+            tiltX = beta / 30;
+            tiltY = gamma / 30;
+        } else if (orientation === 180) {
+            // Upside Down Portrait
+            tiltX = -gamma / 30;
+            tiltY = -(beta + 60) / 30;
+        } else {
+            // Standard Portrait
+            tiltX = gamma / 30;
+            tiltY = (beta - 60) / 30; // Center around 60 deg typical holding angle
         }
+        
+        targetMouseX = Math.max(-1, Math.min(1, tiltX));
+        targetMouseY = Math.max(-1, Math.min(1, -tiltY)); // Invert Y
     }
 
-    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-        window.addEventListener('click', () => {
+    // Request device orientation permissions (required for iOS 13+)
+    function requestGyroPermission() {
+        if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission()
                 .then(response => {
                     if (response === 'granted') {
-                        window.addEventListener('deviceorientation', handleOrientation);
+                        window.removeEventListener('deviceorientation', handleOrientation);
+                        window.addEventListener('deviceorientation', handleOrientation, true);
                     }
                 })
-                .catch(console.error);
-        }, { once: true });
-    } else {
-        window.addEventListener('deviceorientation', handleOrientation);
+                .catch(err => {
+                    console.warn("DeviceOrientation permission error:", err);
+                });
+        }
     }
+
+    // Set up listeners for mobile interactions
+    window.addEventListener('click', requestGyroPermission, { once: true });
+    window.addEventListener('touchend', requestGyroPermission, { once: true });
+    
+    // Bind orientation listener directly (works on Android Chrome/Firefox immediately)
+    window.addEventListener('deviceorientation', handleOrientation, true);
 
     let scrollY = 0;
     let targetScrollY = 0;
