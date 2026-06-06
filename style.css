@@ -1421,7 +1421,7 @@ footer {
     }
 
     .cv-contact-line {
-        flex-direction: column;
+        flex-direction: column !important;
         gap: 0.75rem;
     }
     
