@@ -1404,7 +1404,34 @@ footer {
     }
     
     .projects-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1.25rem;
+        padding: 0.5rem 1rem 1.5rem 1rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        scroll-padding-inline: 1rem;
+    }
+    
+    .projects-grid::-webkit-scrollbar {
+        height: 5px;
+    }
+    .projects-grid::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 3px;
+    }
+    .projects-grid::-webkit-scrollbar-thumb {
+        background: rgba(99, 102, 241, 0.25);
+        border-radius: 3px;
+    }
+    
+    .project-card {
+        flex: 0 0 290px;
+        scroll-snap-align: start;
+        margin-bottom: 0; /* Align perfectly */
     }
     
     .contact-grid {
