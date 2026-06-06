@@ -251,7 +251,6 @@ function renderGrid(filter) {
             <div class="card-content">
                 <div class="card-header">
                     <span class="tag-badge">${project.tag}</span>
-                    <span class="status-badge">${project.status}</span>
                 </div>
                 <h3 class="project-title">${project.name}</h3>
                 <p class="project-outcome-text">${project.outcome}</p>
