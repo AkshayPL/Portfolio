@@ -747,9 +747,13 @@ header {
 .cv-contact-info {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
-    font-size: 0.9rem;
+    gap: 1rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
+}
+
+.cv-contact-info span {
+    white-space: nowrap;
 }
 
 .cv-contact-info a {
