@@ -712,6 +712,33 @@ function initWebGLBackground() {
         targetMouseY = -(e.clientY / window.innerHeight) * 2 + 1;
     });
 
+    // Gyroscope / Accelerometer orientation handling for mobile devices
+    function handleOrientation(e) {
+        if (e.beta !== null && e.gamma !== null) {
+            // gamma: left/right tilt [-90, 90]
+            // beta: front/back tilt [-180, 180]
+            const tiltX = e.gamma / 30; // Scale range: ~30 deg tilt maps to -1 to 1
+            const tiltY = (e.beta - 60) / 30; // Center around 60 deg holding angle
+            
+            targetMouseX = Math.max(-1, Math.min(1, tiltX));
+            targetMouseY = Math.max(-1, Math.min(1, -tiltY)); // Invert Y
+        }
+    }
+
+    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+        window.addEventListener('click', () => {
+            DeviceOrientationEvent.requestPermission()
+                .then(response => {
+                    if (response === 'granted') {
+                        window.addEventListener('deviceorientation', handleOrientation);
+                    }
+                })
+                .catch(console.error);
+        }, { once: true });
+    } else {
+        window.addEventListener('deviceorientation', handleOrientation);
+    }
+
     let scrollY = 0;
     let targetScrollY = 0;
     window.addEventListener('scroll', () => {
