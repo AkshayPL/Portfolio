@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshay P L - XR Technologist & C# Systems Developer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- WebGL Background Canvas -->
+    <canvas id="webgl-bg"></canvas>
+    
+    <!-- Background Gradient and Glow Effects -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="code-bracket">&lt;</span>
+                <span class="logo-text">Akshay P L</span>
+                <span class="code-bracket">/&gt;</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="cv.html" class="btn-cv-nav"><i class="fa-solid fa-file-invoice"></i> View CV</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">
+            <span class="badge-status"></span> Available for Full-Time Hire & Freelance Projects
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">XR Technologist & Immersive C# Systems Builder</h1>
+            <p class="hero-subtitle">8 years at the intersection of complex enterprise challenges and high-fidelity virtual simulations. Engineering production-ready interactive systems from whiteboard to deployment.</p>
+            
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-gamepad"></i> Explore Codebases</a>
+                <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Let's Collaborate</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Installation Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">30+</span>
+                    <span class="stat-label">POCs Delivered</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Production Apps</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid Section -->
+    <section class="projects-section" id="projects">
+        <div class="section-header">
+            <h2>Core C# Mechanics & Simulations</h2>
+            <p>Select any project card to view underlying custom C# systems, physics, and networking architectures.</p>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-layer-group"></i> All Systems</button>
+                <button class="filter-btn" data-filter="simulation"><i class="fa-solid fa-gamepad"></i> Simulations & Physics</button>
+                <button class="filter-btn" data-filter="hardware"><i class="fa-solid fa-microchip"></i> Hardware Integrations</button>
+                <button class="filter-btn" data-filter="network"><i class="fa-solid fa-network-wired"></i> Networking & Sync</button>
+            </div>
+        </div>
+        
+        <div class="projects-grid" id="projects-grid">
+            <!-- Project cards will be populated here -->
+        </div>
+    </section>
+
+    <!-- Contact & Handoff Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2>Initiate Collaboration</h2>
+                <p>Looking to build high-performance C# simulations, optimize 3D pipelines, or consult on XR strategies? Get in touch for roles or contract work.</p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Direct Channels -->
+                <div class="contact-card">
+                    <div class="contact-channel">
+                        <div class="channel-icon email-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="channel-details">
+                            <span class="channel-label">Email Me Directly</span>
+                            <a href="mailto:akshayneymar@gmail.com" class="channel-value">akshayneymar@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-channel">
+                        <div class="channel-icon phone-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="channel-details">
+                            <span class="channel-label">Call / Message</span>
+                            <a href="tel:+918105702885" class="channel-value">+91-8105702885</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-channel">
+                        <div class="channel-icon linkedin-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                        <div class="channel-details">
+                            <span class="channel-label">Professional Network</span>
+                            <a href="https://linkedin.com" target="_blank" class="channel-value">LinkedIn Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-channel">
+                        <div class="channel-icon twitter-icon"><i class="fa-brands fa-x-twitter"></i></div>
+                        <div class="channel-details">
+                            <span class="channel-label">Social Update Channel</span>
+                            <a href="https://twitter.com" target="_blank" class="channel-value">Twitter / X Handle</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div class="modal-backdrop" id="project-modal">
+        <div class="modal-card">
+            <button class="modal-close" id="modal-close" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-media-container">
+                    <!-- Carousel Slides wrapper -->
+                    <div class="carousel-slides" id="carousel-slides">
+                        <!-- Dynamic slides loaded here -->
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <button class="carousel-btn prev-btn" id="carousel-prev" aria-label="Previous slide">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next-btn" id="carousel-next" aria-label="Next slide">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- Indicators / Dots -->
+                    <div class="carousel-dots" id="carousel-dots"></div>
+                </div>
+                
+                <div class="modal-info">
+                    <div class="modal-header">
+                        <span class="modal-tag" id="modal-tag">Unity Engine</span>
+                        <h3 class="modal-title" id="modal-title">Project Title</h3>
+                    </div>
+                    <p class="modal-outcome" id="modal-outcome">Outcome Description</p>
+                    <div class="modal-details">
+                        <h4>Core C# Systems Implementation</h4>
+                        <ul class="modal-bullets" id="modal-bullets">
+                            <!-- Bullet points go here -->
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="media-required-alert" id="modal-media-alert">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span><strong>Required Media Asset:</strong> <code id="modal-asset-name">filename.ext</code></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VR Explore Section -->
+    <section class="vr-explore-section">
+        <div class="vr-container">
+            <h3>Immersive Space Experience</h3>
+            <p>Have a VR headset? Launch the virtual galaxy fly-past directly in immersive virtual reality.</p>
+            <button id="vr-btn" class="btn btn-primary btn-vr" style="display: none;"><i class="fa-solid fa-vr-cardboard"></i> Explore in VR</button>
+            <div id="vr-unsupported" class="vr-unsupported-msg">WebXR Immersive VR mode is supported on compatible VR headsets & browsers.</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 Akshay P L. Compiled autonomously.</p>
+            <div class="footer-tech">
+                <i class="fa-brands fa-html5"></i>
+                <i class="fa-brands fa-css3-alt"></i>
+                <i class="fa-brands fa-js"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
