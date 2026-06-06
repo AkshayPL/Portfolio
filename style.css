@@ -662,6 +662,7 @@ header {
 .channel-icon {
     width: 3.25rem;
     height: 3.25rem;
+    flex-shrink: 0;
     border-radius: 12px;
     display: flex;
     align-items: center;
