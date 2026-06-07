@@ -1403,9 +1403,18 @@ footer {
         font-size: 0.8rem;
     }
     
+    .projects-section {
+        width: 100%;
+        max-width: 100%;
+        padding: 2rem 1rem 3.5rem 1rem;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
     .projects-grid {
         display: flex;
         flex-direction: row;
+        align-items: stretch;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
@@ -1432,6 +1441,7 @@ footer {
         flex: 0 0 290px;
         scroll-snap-align: start;
         margin-bottom: 0; /* Align perfectly */
+        height: auto !important; /* Force card height to stretch to match sibling heights */
     }
     
     .contact-grid {
